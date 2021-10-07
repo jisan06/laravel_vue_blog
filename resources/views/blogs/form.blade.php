@@ -63,7 +63,7 @@
         </label>
         <div class="form-group">
             {{ Form::file('banner', ['class' => $error_class.'form-control', 'id' => 'banner', 'required' =>  file_exists('storage/'.@$blog->image) ? false : true]) }}
-            @if(file_exists('storage/'.@$blog->image))
+            @if(@$blog->image && file_exists('storage/'.@$blog->image))
                 <img src="{{asset('storage/'.$blog->image)}}" alt="banner" width="200">
             @endif
             @if ($errors->has('banner'))
