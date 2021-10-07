@@ -23,7 +23,7 @@
                         <td>{{$blog->tag}}</td>
                         <td>
                             <a href="{{route('blog.edit',$blog->id)}}" class="btn btn-primary">Edit</a>
-                            <form action="{{route('blog.destroy',$blog)}}" method="POST">
+                            <form action="{{route('blog.destroy',$blog)}}" method="POST" class="d-inline-block">
                                 {{ method_field('DELETE') }}
                                 {{ csrf_field() }}
                                 <button class="btn btn-danger">Delete</button>
