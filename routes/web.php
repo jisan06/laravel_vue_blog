@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function(){
 	return redirect(route('blog.index'));
 });
+
+Route::get('/home', [BlogController::class,'home'])->name('home');
 
 Route::resource('blog', BlogController::class);
 

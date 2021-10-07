@@ -98,4 +98,17 @@ class BlogController extends Controller
         $this->blog->delete($id);
         return redirect(route('blog.index'));
     }
+
+    public function home(){
+        return view('home');
+    }
+
+    public function allBlog(){
+        return $this->blog->all();
+    }
+
+
+    public function blogDetails($id){
+        return $this->blog->find($id);
+    }
 }

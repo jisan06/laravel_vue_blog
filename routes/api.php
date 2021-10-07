@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\BlogController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,4 +13,7 @@ use App\Http\Controllers\PostController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/all-blogs', [BlogController::class, 'allBlog']);
+Route::get('/blog-details/{id}', [BlogController::class, 'blogDetails']);
 

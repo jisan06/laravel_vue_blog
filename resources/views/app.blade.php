@@ -20,6 +20,11 @@
 </head>
 <body>
     <div class="container">
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <a target="_blank" href="{{route('home')}}" class="btn btn-success">View Website</a>
+            </div>
+        </div>
         <div class="text-center" style="margin: 20px 0px 20px 0px;">
             <span class="text-secondary">Build Laravel Vue</span>
         </div>
