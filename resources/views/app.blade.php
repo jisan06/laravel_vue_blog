@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav">
-                    <a href="" class="nav-item nav-link">Home</a>
+                    <a href="{{route('blog.index')}}" class="nav-item nav-link">Blog List</a>
                     <a href="{{route('blog.create')}}" class="nav-item nav-link">Add Blog</a>
                 </div>
             </div>
