@@ -13,7 +13,7 @@ class BlogRepository extends BaseRepository implements BlogInterface
     }
 
     public function find($id){
-    	return Blog::find($id);
+    	return Blog::with('comments','comments.replys')->find($id);
 	}
 
     public function all(){

@@ -9,7 +9,7 @@ export const routes = [
     },
     {
         name: 'blog_details',
-        path: '/details/:id',
+        path: '/api/details/:id',
         component: BlogDetails
     }
 ];
