@@ -11,6 +11,6 @@ class Blog extends Model
     protected $guarded = ['id'];
 
     public function comments(){
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class)->where('parent_id', null);
     }
 }

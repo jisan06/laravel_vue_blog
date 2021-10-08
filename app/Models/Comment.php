@@ -11,6 +11,6 @@ class Comment extends Model
     protected $guarded = ['id'];
 
     public function replys(){
-        return $this->hasMany(Comment::class,'parent_id');
+        return $this->hasMany(Comment::class,'parent_id')->where('parent_id','!=', null);
     }
 }

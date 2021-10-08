@@ -28,15 +28,15 @@
                     <h5 class="border-bottom border-secondary d-inline">Demo User</h5> <br>
                        <span>{{blogComment.comment}}</span> <br>
                         <div  class="mx-4">
-                            <a href="javascript:">Reply</a> <br>
+                            <a href="javascript:" @click="ShowReplyForm(index)">Reply</a> <br>
 
-                            <form @submit.prevent="addReply(blogComment.id, index)">
+                            <form @submit.prevent="addReply(blogComment.id, index)" v-if="blogComment.ReplyForm">
                                 <div class="row">
                                     <div class="col-md-10 my-3">
                                         <input class="form-control" type="text" :id="'reply_'+blogComment.id" placeholder="reply this comment">
                                     </div>
                                     <div class="col-md-2 my-3">
-                                       <button class="btn btn-primary">Reply</button>
+                                       <button class="btn btn-primary">Send Reply</button>
                                     </div>
                                 </div>
                             </form>
@@ -70,7 +70,6 @@
                 .get(`/api/blog-details/${this.$route.params.id}`)
                 .then((response) => {
                     this.blog = response.data;
-                console.log(this.blog)
                 });
 
                 this.blog_comment.blog_id = this.$route.params.id
@@ -96,8 +95,18 @@
                     .post(`/api/comment/reply`, this.reply)
                     .then((response) => {
                         reply_input.val('')
+                        this.blog.comments[index].replys.push(response.data)
                     })
                      .catch(err => {});
+            },
+
+            ShowReplyForm(index){
+                if(this.blog.comments[index].ReplyForm == true){
+                    this.blog.comments[index].ReplyForm = false
+                }else{
+                    this.blog.comments[index].ReplyForm = true
+                }
+                
             }
         }
     }
